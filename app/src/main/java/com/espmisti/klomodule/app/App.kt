@@ -6,6 +6,7 @@ import com.espmisti.klo.KloService
 class App : Application() {
     override fun onCreate() {
         super.onCreate()
+        // Initial KloService
         KloService.Builder()
             .setAFKey(v = "okkpPZQHkxNotyrpigEDem")
             .init(context = this)
