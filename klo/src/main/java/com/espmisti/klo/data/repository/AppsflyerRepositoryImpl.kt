@@ -25,7 +25,6 @@ class AppsflyerRepositoryImpl(private val context: Context) : AppsflyerRepositor
     override suspend fun getData(): MutableMap<String, Any>? = suspendCoroutine {
         val conversionListener = object : AppsFlyerConversionListener {
             override fun onConversionDataSuccess(map: MutableMap<String, Any>?) {
-                Log.i(Constants.TAG, "onConversionDataSuccess: $map")
                 it.resume(map)
             }
             override fun onConversionDataFail(p0: String?) {

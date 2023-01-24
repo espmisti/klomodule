@@ -1,14 +1,14 @@
 package com.espmisti.klomodule.app
 
 import android.app.Application
-import com.espmisti.klo.KloService
+import android.util.Log
+import com.espmisti.klo.Klo
+import com.espmisti.klo.common.Constants
 
 class App : Application() {
     override fun onCreate() {
         super.onCreate()
-        // Initial KloService
-        KloService.Builder()
-            .setAFKey(v = "okkpPZQHkxNotyrpigEDem")
-            .init(context = this)
+        // Initial KloModule
+        Klo.Builder(context = this).initAppsflyer("okkpPZQHkxNotyrpigEDem")
     }
 }

@@ -3,7 +3,7 @@ package com.espmisti.klomodule
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import com.espmisti.klo.KloService
+import com.espmisti.klo.Klo
 import com.espmisti.klo.common.Constants
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -14,10 +14,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         CoroutineScope(Dispatchers.IO).launch {
-            val data = KloService.Builder()
-                .setAFKey(v = "okkpPZQHkxNotyrpigEDem")
-                .getCampaign(context = applicationContext)
-            Log.i(Constants.TAG,"$data")
+            val campaign = Klo.Builder(context = applicationContext).getCampaign()
+            Log.i(Constants.TAG, "[Result]: $campaign")
         }
     }
 }
