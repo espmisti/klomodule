@@ -17,3 +17,6 @@ rootProject.name = "KloModule"
 include ':app'
 include ':klo'
 
+include ':domain'
+include ':data'
+include ':common'

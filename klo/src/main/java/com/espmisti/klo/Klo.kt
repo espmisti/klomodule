@@ -1,17 +1,13 @@
 package com.espmisti.klo
 
 import android.content.Context
-import android.content.Intent
 import android.util.Log
-import com.appsflyer.AppsFlyerLib
-import com.espmisti.klo.common.Constants
-import com.espmisti.klo.common.Utils
-import com.espmisti.klo.data.repository.AppsflyerRepositoryImpl
-import com.espmisti.klo.data.repository.FacebookRepositoryImpl
-import com.espmisti.klo.domain.usecase.GetAppsflyerDataUseCase
-import com.espmisti.klo.domain.usecase.GetAppsflyerStateUseCase
-import com.espmisti.klo.domain.usecase.GetFacebookDataUseCase
-import com.espmisti.klo.domain.usecase.GetFacebookStateUseCase
+import com.espmisti.common.Constants
+import com.espmisti.common.Utils
+import com.espmisti.data.repository.AppsflyerRepositoryImpl
+import com.espmisti.domain.usecase.GetAppsflyerDataUseCase
+import com.espmisti.domain.usecase.GetAppsflyerStateUseCase
+import com.espmisti.domain.usecase.InitAppsflyerUseCase
 
 object Klo {
     class Builder(private val context: Context) {
@@ -19,8 +15,7 @@ object Klo {
         // Init Appsflyer
         fun initAppsflyer(af_key: String) = apply {
             if (Utils.isNetworkAvailable(context)) {
-                AppsFlyerLib.getInstance().init(af_key, null, context)
-                AppsFlyerLib.getInstance().setMinTimeBetweenSessions(0)
+                InitAppsflyerUseCase(repository = AppsflyerRepositoryImpl(context)).execute(key = af_key)
                 Utils.prefSaveString(context, Constants.PREFS.AF_KEY, af_key)
             } else Log.e(Constants.TAG, "[Error]: Internet connection failure")
         }
