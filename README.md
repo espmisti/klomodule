@@ -36,7 +36,7 @@ Add the dependency
 	<dependency>
 	    <groupId>com.github.espmisti</groupId>
 	    <artifactId>klomodule</artifactId>
-	    <version>Tag</version>
+	    <version>latest</version>
 	</dependency>    
 ```
 
