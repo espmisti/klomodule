@@ -8,7 +8,7 @@
 Add dependencies:
 ```kotlin
 dependencies {
-    implementation 'com.github.espmisti:KloModule:latest'
+    implementation 'com.github.espmisti:klomodule:latest'
 }
 ```
 Add it in your root build.gradle at the end of repositories:
@@ -18,6 +18,26 @@ allprojects {
       maven { url 'https://jitpack.io' }
     }
 }
+```
+
+### Maven
+Add the JitPack repository to your build file
+```xml
+	<repositories>
+		<repository>
+		    <id>jitpack.io</id>
+		    <url>https://jitpack.io</url>
+		</repository>
+	</repositories>
+```
+    
+Add the dependency
+```xml
+	<dependency>
+	    <groupId>com.github.espmisti</groupId>
+	    <artifactId>klomodule</artifactId>
+	    <version>Tag</version>
+	</dependency>    
 ```
 
 <img src="https://sun9-80.userapi.com/impg/JZaZj7BfrN33x8NtB1bH_WBFCyIlgkXwswMaXA/OWtM8sdRiCo.jpg?size=2000x40&quality=96&sign=633ed80d7c13defcddec353e11f79d5b&type=album" />
